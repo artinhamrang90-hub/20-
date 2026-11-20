@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>۲۰ ابزار هوش مصنوعی برای زیرنویس ویدیو</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f5f6;--ink:#0f2229;--mute:#4d6269;--line:#d5dfe2;--surface:#fff;--accent:#0a6b78;--cap:#ffd23f;--capink:#1a1500;--frame:#0c2a31;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b171b;--ink:#e6f0f2;--mute:#93aab0;--line:#1f343a;--surface:#112126;--accent:#4cc3d1;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b171b;--ink:#e6f0f2;--mute:#93aab0;--line:#1f343a;--surface:#112126;--accent:#4cc3d1;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Vazirmatn",Tahoma,"Segoe UI",sans-serif;line-height:1.9;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:28px 18px 56px}
+.frame{background:var(--frame);border-radius:14px;aspect-ratio:16/7;display:flex;align-items:flex-end;justify-content:center;padding:18px;background-image:linear-gradient(160deg,#143e47 0%,#0c2a31 60%,#081a1f 100%)}
+.cap{background:rgba(0,0,0,.55);color:var(--cap);font-weight:600;font-size:clamp(15px,3.6vw,22px);padding:4px 14px;border-radius:6px;text-align:center;line-height:1.7}
+h1{font-size:clamp(24px,5.5vw,36px);font-weight:800;line-height:1.5;margin:26px 0 8px}
+.lead{color:var(--mute);margin:0 0 22px;max-width:62ch}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:6px}
+input[type=search]{flex:1 1 220px;min-width:0;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.chip{font:inherit;font-size:14px;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:999px;padding:3px 14px;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.count{color:var(--mute);font-size:14px;margin:10px 0 0}
+ul{list-style:none;margin:8px 0 0;padding:0}
+li{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:16px 0;border-top:1px solid var(--line);align-items:center}
+li h2{font-size:18px;margin:0;font-weight:800;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.tag{font-size:12px;font-weight:600;background:var(--cap);color:var(--capink);border-radius:5px;padding:0 8px}
+li p{grid-column:1;margin:0;color:var(--mute);font-size:15px}
+a.go{grid-row:1/3;grid-column:2;color:var(--accent);border:1px solid var(--accent);border-radius:10px;padding:5px 16px;text-decoration:none;font-weight:600;white-space:nowrap}
+a.go:hover{background:var(--accent);color:#fff}
+.note{margin-top:28px;padding:14px 16px;border:1px dashed var(--line);border-radius:10px;color:var(--mute);font-size:14px}
+.empty{padding:22px 0;color:var(--mute)}
+@media (max-width:520px){li{grid-template-columns:1fr}a.go{grid-row:auto;grid-column:1;justify-self:start;margin-top:6px}}
+@media (prefers-reduced-motion:no-preference){.cap{animation:rise .7s ease-out both}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="frame" role="img" aria-label="نمونه زیرنویس روی ویدیو"><div class="cap">زیرنویس درست، یعنی بیننده بیشتر</div></div>
+  <h1>۲۰ ابزار هوش مصنوعی برای زیرنویس ویدیو</h1>
+  <p class="lead">فهرستی از ابزارهای شناخته‌شده برای ساخت خودکار زیرنویس. هر کدوم رو با یه جمله معرفی کردیم و لینک سایت رسمیش هم هست تا خودت امتحانش کنی.</p>
+  <div class="tools"><input id="q" type="search" placeholder="جستجوی نام ابزار…" aria-label="جستجو"></div>
+  <div class="chips" id="chips" role="group" aria-label="دسته‌بندی"></div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <ul id="list"></ul>
+  <div class="note">نکته: میزان پشتیبانی از زبان فارسی بین ابزارها فرق می‌کنه. قبل از انتخاب نهایی، یه فایل کوتاه فارسی رو تست کن و خروجی رو حتماً یک بار بخون و اصلاح کن. قیمت‌ها و امکانات هم ممکنه عوض بشن، پس از سایت خود ابزار چک کن. آخرین بررسی فهرست: آبان ۱۴۰۵.</div>
+</main>
+<script>
+var CATS={all:"همه",editor:"ویرایشگر ویدیو",social:"شورت و شبکه اجتماعی",pro:"رونویسی دقیق",dev:"توسعه‌دهنده و متن‌باز"};
+var T=[
+["VEED","editor","https://www.veed.io","ویرایشگر آنلاین با زیرنویس خودکار، ترجمه و خروجی SRT یا زیرنویس چسبیده به ویدیو. برای شروع سریع عالیه."],
+["Kapwing","editor","https://www.kapwing.com","ویرایش آنلاین ویدیو با زیرنویس خودکار و استایل‌دهی راحت، بدون نصب برنامه."],
+["CapCut","editor","https://www.capcut.com","زیرنویس خودکار در نسخه موبایل و دسکتاپ، با کلی قالب آماده برای ظاهر زیرنویس."],
+["Descript","editor","https://www.descript.com","ویدیو رو مثل یه سند متنی ویرایش می‌کنی؛ متن رو عوض کنی، ویدیو هم عوض می‌شه."],
+["SubtitleBee","editor","https://www.subtitlebee.com","ابزاری که مخصوص اضافه کردن زیرنویس به ویدیو ساخته شده و رابط ساده‌ای داره."],
+["Zubtitle","social","https://zubtitle.com","زیرنویس با قالب‌های برندشده برای ویدیوهای شبکه‌های اجتماعی و بازاریابی."],
+["Submagic","social","https://www.submagic.co","زیرنویس‌های پویا و جذاب برای شورت، ریلز و تیک‌تاک."],
+["OpusClip","social","https://www.opus.pro","از یه ویدیوی بلند چند کلیپ کوتاه می‌سازه و زیرنویس هم روش می‌ذاره."],
+["Vizard","social","https://vizard.ai","ساخت کلیپ‌های کوتاه از ویدیوهای طولانی، همراه با زیرنویس خودکار."],
+["Sonix","pro","https://www.sonix.ai","رونویسی و زیرنویس با دقت بالا و زبان‌های زیاد، مناسب سازمان‌ها و کارهای امنیت‌محور."],
+["Happy Scribe","pro","https://www.happyscribe.com","ترکیب هوش مصنوعی و ویرایش انسانی برای زیرنویس و ترجمه."],
+["Rev","pro","https://www.rev.com","هم هوش مصنوعی داره هم زیرنویس تایید‌شده توسط انسان، وقتی دقت خیلی مهمه."],
+["Trint","pro","https://trint.com","رونویسی و ویرایش گروهی متن، مخصوص تیم‌های خبری و تولید محتوا."],
+["Transkriptor","pro","https://transkriptor.com","تبدیل صدا و ویدیو به متن و زیرنویس به زبان‌های مختلف."],
+["Otter","pro","https://otter.ai","رونویسی جلسه‌ها و مصاحبه‌ها، با تشخیص گوینده و خلاصه‌سازی."],
+["Maestra","pro","https://maestra.ai","رونویسی، ترجمه زیرنویس و دوبله در بیش از صد زبان، برای حجم کار بالا."],
+["Amara","pro","https://amara.org","پلتفرم زیرنویس‌گذاری گروهی؛ ساخت و ویرایش زیرنویس با همکاری چند نفر."],
+["OpenAI Whisper","dev","https://github.com/openai/whisper","مدل متن‌باز تبدیل گفتار به متن. رایگان روی سیستم خودت اجرا می‌شه و پایه خیلی از ابزارهای دیگه‌ست."],
+["Subtitle Edit","dev","https://nikse.dk/subtitleedit","برنامه رایگان دسکتاپ برای ساخت و تنظیم زیرنویس، با پشتیبانی از فرمت‌های زیاد."],
+["AssemblyAI","dev","https://www.assemblyai.com","API رونویسی برای برنامه‌نویس‌ها؛ اگه بخوای زیرنویس رو توی محصول خودت بسازی."]
+];
+var cat="all",q="",list=document.getElementById("list"),chips=document.getElementById("chips"),cnt=document.getElementById("count");
+Object.keys(CATS).forEach(function(k){var b=document.createElement("button");b.className="chip";b.textContent=CATS[k];b.setAttribute("aria-pressed",k==="all");b.onclick=function(){cat=k;[].forEach.call(chips.children,function(c){c.setAttribute("aria-pressed",c===b)});draw()};chips.appendChild(b)});
+document.getElementById("q").oninput=function(e){q=e.target.value.trim().toLowerCase();draw()};
+function draw(){
+  list.textContent="";var n=0;
+  T.forEach(function(t){
+    if((cat!=="all"&&t[1]!==cat)||(q&&t[0].toLowerCase().indexOf(q)<0))return;
+    n++;
+    var li=document.createElement("li"),h=document.createElement("h2"),s=document.createElement("span"),g=document.createElement("span"),p=document.createElement("p"),a=document.createElement("a");
+    s.textContent=t[0];s.dir="ltr";g.className="tag";g.textContent=CATS[t[1]];h.append(s,g);
+    p.textContent=t[3];a.className="go";a.href=t[2];a.target="_blank";a.rel="noopener noreferrer";a.textContent="رفتن به سایت";
+    li.append(h,p,a);list.appendChild(li);
+  });
+  if(!n){var e=document.createElement("li");e.className="empty";e.textContent="چیزی پیدا نشد. اسم یا دسته دیگه‌ای رو امتحان کن.";e.style.display="block";list.appendChild(e)}
+  cnt.textContent=n+" ابزار نمایش داده می‌شه";
+}
+draw();
+</script>
+</body>
+</html>
